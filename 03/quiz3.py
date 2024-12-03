@@ -9,10 +9,11 @@ Created on Tue Dec  3 14:53:27 2024
 import re
 
 with open('input') as f:
-    input = f.read()
+    text = f.read()
 
+# add up all of the results of the multiplications: mul(a,b)
 
-multis = re.findall(r'mul\((\d+,\d+)\)', input)
+multis = re.findall(r'mul\((\d+,\d+)\)', text)
 
 def mul(group:str):
     x,y = [int(x) for x in group.split(',')]
@@ -22,28 +23,30 @@ def mul(group:str):
 answer1 = sum([mul(x) for x in multis])
 # 191183308
 
-#remove all input between all 'dont()' and 'do()'
 
-line = "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))"
+# remove all input between all 'dont()' and 'do()'
 
-def clean_input(lines:str):
+def clean_input(text:str):
     cleaned = ""
     lastdont = 0
     lastdo = 0
     
     while True:
-        start = lines.find("don't()", lastdont)
-        if start < 0:
-            # add remaining text
+        end = text.find("don't()", lastdo)
+        if end < 0:
+            cleaned += text[lastdo:]
             break
-        end = lines.find("do()", start)
-        if end < 0 :
+        cleaned += text[lastdo:end]
+        lastdont = end + 7
+        lastdo = text.find("do()", lastdont)
+
+        if lastdo < 0 :
             break
-        # cleaned += lines[:lastdont] + lines[]
-            
     
-    
-    
-    
-    
-    
+    return cleaned
+
+multis2 = re.findall(r'mul\((\d+,\d+)\)', clean_input(text))
+
+answer2 = sum([mul(x) for x in multis2])
+# 92082041
+
