@@ -1,10 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Dec  1 14:25:14 2024
 
-@author: pbeuar
-"""
 
 list_a = []
 list_b = []

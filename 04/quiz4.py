@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Dec  4 15:24:21 2024
-
-@author: pankusher
-"""
 
 
 with open('input') as f:
