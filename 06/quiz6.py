@@ -1,18 +1,15 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Dec  6 14:30:28 2024
 
-data_txt = """....#.....
-.........#
-..........
-..#.......
-.......#..
-..........
-.#..^.....
-........#.
-#.........
-......#..."""
-    
-# data = [x for x in data_txt.split()]
+@author: pankusher
+"""
 
-data = [[x for x in y] for y in data_txt.split()]
+with open('input') as f:
+    data = [[x for x in y] for y in f.read().split()]
+
+
 
 width  = len(data[0])
 height = len(data)
@@ -20,11 +17,11 @@ height = len(data)
 arrows = ['^', '>', 'v', '<']
 
 dirs = [
-       (0,-1),
-       (1, 0),
-       (0, 1),
-       (-1,0)
-       ]
+        (0,-1),
+        (1, 0),
+        (0, 1),
+        (-1,0)
+        ]
 
 
 
@@ -60,21 +57,4 @@ while True:
         break
     
 answer1 = positions
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
