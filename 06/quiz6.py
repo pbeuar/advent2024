@@ -49,7 +49,6 @@ while True:
                 data[y][x] = arrows[dirs.index(g_dir)]
                 positions.append([y,x])
     else:
-        print(x,y,g_dir)
         break
     
 answer1 = len(positions)
@@ -68,6 +67,7 @@ for pos in positions[1:]:
             if data_copy[yy][xx] in '#O':
                 g_dir = dirs[(dirs.index(g_dir)+1)%4]
             elif data_copy[yy][xx] == arrows[dirs.index(g_dir)]:
+                #if direction is the same as the arrow ->> it's a loop
                 blocks.append(pos)
                 break
             else:
