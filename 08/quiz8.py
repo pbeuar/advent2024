@@ -1,19 +1,7 @@
 
 
-data_txt = """............
-........0...
-.....0......
-.......0....
-....0.......
-......A.....
-............
-............
-........A...
-.........A..
-............
-............"""
-
-
+with open('input') as f:
+    data_txt = f.read()
 
 data = [[x for x in y] for y in data_txt.split()]
 
@@ -48,7 +36,6 @@ def calc_antinodes(a, b):
             nodes.append(node)
     
     
-
 
 for freq in antenas:
     amount = len(antenas[freq])
@@ -88,7 +75,9 @@ def calc_antinodes2(a, b):
             break
     nodes2.append(a)
     nodes2.append(b)
-    
+
+
+
 
 for freq in antenas:
     amount = len(antenas[freq])
@@ -98,9 +87,6 @@ for freq in antenas:
             
             
 answer2 = len(set(nodes2))
-# 1030
-
-        
 
 
 
